@@ -9,153 +9,180 @@
 *{box-sizing:border-box}
 body{
  margin:0;
- background:#101c29;
- color:#f5eee2;
- font-family:Arial,Tahoma,sans-serif;
+ font-family:Tahoma,Arial,sans-serif;
+ background:#101d2b;
+ color:#fff;
+ line-height:1.8;
 }
 header{
- background:#203447;
- padding:35px 15px;
  text-align:center;
- border-bottom:3px solid #c7a66a;
+ padding:35px 15px;
+ background:linear-gradient(135deg,#183b50,#101d2b);
+ border-bottom:3px solid #c69b52;
 }
-header h1{color:#e7c98f}
-header p{line-height:1.8}
-main{max-width:900px;margin:auto;padding:20px}
-h2{color:#e7c98f;text-align:center}
-.intro{text-align:center;line-height:2}
+header h1{color:#e8c27a;margin:0 0 10px}
+header p{margin:0;color:#ddd}
+.container{max-width:1000px;margin:auto;padding:20px}
+h2{color:#e8c27a}
 .cards{
  display:grid;
- grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
- gap:15px;margin-top:25px;
+ grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+ gap:20px;
 }
 .card{
- background:#203447;
- border:1px solid #657181;
+ background:#1c3042;
+ border:1px solid #41566a;
  border-radius:12px;
- padding:18px;text-align:center;
+ padding:15px;
+ text-align:center;
 }
 .art{
- height:140px;
- background:linear-gradient(135deg,#52677a,#26394a);
+ width:100%;
+ height:170px;
+ object-fit:cover;
  border-radius:9px;
- display:flex;align-items:center;
- justify-content:center;
- font-size:45px;
 }
-.card h3{color:#e7c98f}
+.card h3{color:#e8c27a}
 button{
- background:#c7a66a;color:#172330;
- border:0;padding:12px 20px;
- border-radius:7px;font-weight:bold;
+ background:#c69b52;
+ color:#172330;
+ border:0;
+ border-radius:8px;
+ padding:10px 20px;
+ font-size:16px;
+ font-weight:bold;
+ cursor:pointer;
 }
-.details{
- display:none;background:#203447;
- border:1px solid #c7a66a;
- border-radius:12px;padding:20px;
- margin-top:25px;line-height:2;
+button:hover{background:#e8c27a}
+#details{
+ display:none;
+ background:#1c3042;
+ border-radius:12px;
+ padding:20px;
+ margin-top:25px;
 }
-.details h2{text-align:right}
-a{color:#e7c98f}
-footer{text-align:center;padding:25px;color:#c7c1b5}
+.detail-img{
+ width:100%;
+ max-height:350px;
+ object-fit:contain;
+ border-radius:10px;
+ background:#101d2b;
+}
+a{color:#e8c27a}
+footer{
+ text-align:center;
+ padding:20px;
+ color:#bbb;
+ border-top:1px solid #41566a;
+ margin-top:30px;
+}
 </style>
 </head>
 <body>
 
 <header>
-<h1>متحف التراث الرقمي</h1>
-<p>رحلة لاكتشاف أسرار الحضارات القديمة</p>
+<h1>🏛️ متحف التراث الرقمي</h1>
+<p>رحلة لاكتشاف حضارات العالم وآثارها العظيمة</p>
 </header>
 
-<main>
+<main class="container">
 <h2>اكتشف مجموعتنا الأثرية</h2>
-<p class="intro">
-مرحباً بك في المتحف الرقمي.
-اختر قطعة أثرية لتتعرف على تاريخها وأهميتها.
-</p>
 
 <div class="cards">
 
 <div class="card">
-<div class="art">🏛️</div>
+<img class="art"
+src="https://upload.wikimedia.org/wikipedia/commons/8/80/Ziggurat_of_ur.jpg"
+alt="إعادة بناء زقورة أور">
 <h3>زقورة أور</h3>
-<p>أحد أشهر المعالم المعمارية الدينية في بلاد الرافدين.</p>
-<button onclick="show('ur')">اكتشف القطعة</button>
+<p>أحد أشهر المعالم المعمارية لحضارة بلاد الرافدين.</p>
+<button onclick="showDetails('ur')">اكتشف القطعة</button>
 </div>
 
 <div class="card">
-<div class="art">🏰</div>
+<img class="art"
+src="https://upload.wikimedia.org/wikipedia/commons/1/19/Ishtar_Gate_in_the_Pergamon_Museum_-.jpg"
+alt="بوابة عشتار">
 <h3>بوابة عشتار</h3>
-<p>من أبرز الشواهد المعمارية في مدينة بابل القديمة.</p>
-<button onclick="show('ishtar')">اكتشف القطعة</button>
+<p>بوابة تاريخية عظيمة من مدينة بابل القديمة.</p>
+<button onclick="showDetails('ishtar')">اكتشف القطعة</button>
 </div>
 
 <div class="card">
-<div class="art">📜</div>
+<img class="art"
+src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Behistun_inscription_reliefs.jpg"
+alt="نقش بيستون">
 <h3>نقش بيستون</h3>
-<p>نقش ملكي ساهم في فهم الكتابة المسمارية.</p>
-<button onclick="show('behistun')">اكتشف القطعة</button>
+<p>نقش تاريخي ساعد في فهم الكتابة المسمارية.</p>
+<button onclick="showDetails('behistun')">اكتشف القطعة</button>
 </div>
 
 </div>
 
-<section class="details" id="details">
-<div id="content"></div>
-<button onclick="closeDetails()">العودة للمجموعة</button>
+<section id="details">
+<div id="detailContent"></div>
+<button onclick="closeDetails()">إغلاق التفاصيل</button>
 </section>
 </main>
 
 <footer>
-مشروع المتحف الرقمي للتراث الإنساني
+<p>متحف التراث الرقمي © 2026</p>
+<p>مشروع تعليمي للتعريف بالتراث الإنساني</p>
 </footer>
 
 <script>
-const data={
+const artifacts={
 ur:{
 name:"زقورة أور",
-date:"أواخر الألف الثالث قبل الميلاد.",
-civilization:"الحضارة السومرية، عصر سلالة أور الثالثة.",
-location:"مدينة أور، جنوب العراق.",
-info:"بناء ديني مدرج شيده الملك أور نمو، وارتبط بعبادة الإله نانا إله القمر. تتكون الزقورة من مصاطب متدرجة، وتعد من أهم نماذج العمارة الدينية في بلاد الرافدين.",
-refs:[["Britannica","https://www.britannica.com/topic/ziggurat"],["British Museum","https://www.britishmuseum.org/"]]
+image:"https://upload.wikimedia.org/wikipedia/commons/8/80/Ziggurat_of_ur.jpg",
+date:"حوالي القرن الحادي والعشرين قبل الميلاد",
+civilization:"الحضارة السومرية",
+location:"مدينة أور، جنوب العراق",
+info:"زقورة أور معبد مدرّج ضخم بُني في مدينة أور القديمة. ارتبط بناؤها بالملك أور نمو، وكانت مخصصة لعبادة الإله نانا، إله القمر. وتُعد من أبرز نماذج العمارة الدينية في بلاد الرافدين.",
+note:"الصورة المعروضة إعادة بناء كمبيوترية لشكل الزقورة."
 },
 ishtar:{
 name:"بوابة عشتار",
-date:"حوالي 575 قبل الميلاد.",
-civilization:"الحضارة البابلية الحديثة.",
-location:"مدينة بابل، العراق.",
-info:"أقيمت في عهد الملك نبوخذ نصر الثاني، وكانت من المداخل الاحتفالية الرئيسية لمدينة بابل. اشتهرت بالطوب المزجج الأزرق والزخارف الحيوانية البارزة.",
-refs:[["متحف بيرغامون","https://www.smb.museum/en/"],["The Metropolitan Museum","https://www.metmuseum.org/"]]
+image:"https://upload.wikimedia.org/wikipedia/commons/1/19/Ishtar_Gate_in_the_Pergamon_Museum_-.jpg",
+date:"حوالي القرن السادس قبل الميلاد",
+civilization:"الحضارة البابلية الحديثة",
+location:"مدينة بابل، العراق",
+info:"بُنيت بوابة عشتار في عهد الملك نبوخذ نصر الثاني، وكانت من المداخل الرئيسية لمدينة بابل. اشتهرت بالطوب المزجج الأزرق والزخارف التي تمثل الحيوانات المقدسة، ومنها التنين والثور.",
+note:"الصورة للبوابة المعروضة في متحف بيرغامون."
 },
 behistun:{
 name:"نقش بيستون",
-date:"القرن السادس قبل الميلاد.",
-civilization:"الإمبراطورية الأخمينية الفارسية.",
-location:"جبل بيستون، غرب إيران.",
-info:"أمر الملك داريوس الأول بنقشه لتسجيل انتصاراته وتثبيت شرعيته. كتب بثلاث لغات هي الفارسية القديمة والعيلامية والبابلية، وساعد في فك رموز الكتابة المسمارية.",
-refs:[["UNESCO","https://whc.unesco.org/en/list/1222/"],["Britannica","https://www.britannica.com/"]]
+image:"https://upload.wikimedia.org/wikipedia/commons/f/f1/Behistun_inscription_reliefs.jpg",
+date:"القرن السادس قبل الميلاد",
+civilization:"الإمبراطورية الأخمينية الفارسية",
+location:"جبل بيستون، غرب إيران",
+info:"نقش بيستون نقش ملكي أمر به الملك داريوس الأول. كُتب بثلاث لغات قديمة: الفارسية القديمة، والعيلامية، والبابلية. وكان له دور مهم في فك رموز الكتابة المسمارية.",
+note:"يُعد من أهم الشواهد الأثرية لدراسة تاريخ الإمبراطورية الأخمينية."
 }
 };
 
-function show(id){
-let a=data[id];
-document.getElementById("content").innerHTML=`
+function showDetails(id){
+const a=artifacts[id];
+document.getElementById("detailContent").innerHTML=`
 <h2>${a.name}</h2>
+<img class="detail-img" src="${a.image}" alt="${a.name}">
 <p><b>التاريخ:</b> ${a.date}</p>
 <p><b>الحضارة:</b> ${a.civilization}</p>
 <p><b>الموقع:</b> ${a.location}</p>
-<h3>نبذة تاريخية وأثرية</h3>
-<p>${a.info}</p>
-<h3>المصادر والمراجع</h3>
-<ul>${a.refs.map(r=>`<li><a href="${r[1]}" target="_blank" rel="noopener">${r[0]}</a></li>`).join("")}</ul>
+<p><b>نبذة تاريخية:</b> ${a.info}</p>
+<p><b>ملاحظة:</b> ${a.note}</p>
+<p><b>مصدر الصورة:</b>
+<a href="${a.image}" target="_blank">ويكيميديا كومنز</a></p>
 `;
 document.getElementById("details").style.display="block";
 document.getElementById("details").scrollIntoView({behavior:"smooth"});
 }
+
 function closeDetails(){
 document.getElementById("details").style.display="none";
 }
 </script>
+
 </body>
-  </html>
-  
+ </html>
+ 
