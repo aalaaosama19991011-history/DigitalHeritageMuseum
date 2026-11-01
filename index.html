@@ -5,184 +5,267 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>متحف التراث الرقمي</title>
+
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;
- font-family:Tahoma,Arial,sans-serif;
- background:#101d2b;
- color:#fff;
- line-height:1.8;
+* {
+ box-sizing: border-box;
 }
-header{
- text-align:center;
- padding:35px 15px;
- background:linear-gradient(135deg,#183b50,#101d2b);
- border-bottom:3px solid #c69b52;
+
+body {
+ margin: 0;
+ font-family: Tahoma, Arial, sans-serif;
+ background: #101d2b;
+ color: white;
+ line-height: 1.9;
 }
-header h1{color:#e8c27a;margin:0 0 10px}
-header p{margin:0;color:#ddd}
-.container{max-width:1000px;margin:auto;padding:20px}
-h2{color:#e8c27a}
-.cards{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
- gap:20px;
+
+header {
+ text-align: center;
+ padding: 40px 15px;
+ background: linear-gradient(135deg, #183b50, #101d2b);
+ border-bottom: 3px solid #c69b52;
 }
-.card{
- background:#1c3042;
- border:1px solid #41566a;
- border-radius:12px;
- padding:15px;
- text-align:center;
+
+header h1 {
+ color: #e8c27a;
+ font-size: 30px;
+ margin: 0 0 10px;
 }
-.art{
- width:100%;
- height:170px;
- object-fit:cover;
- border-radius:9px;
+
+header p {
+ color: #ddd;
+ margin: 0;
 }
-.card h3{color:#e8c27a}
-button{
- background:#c69b52;
- color:#172330;
- border:0;
- border-radius:8px;
- padding:10px 20px;
- font-size:16px;
- font-weight:bold;
- cursor:pointer;
+
+.container {
+ max-width: 1050px;
+ margin: auto;
+ padding: 20px;
 }
-button:hover{background:#e8c27a}
-#details{
- display:none;
- background:#1c3042;
- border-radius:12px;
- padding:20px;
- margin-top:25px;
+
+.section-title {
+ color: #e8c27a;
+ text-align: center;
+ margin: 30px 0;
 }
-.detail-img{
- width:100%;
- max-height:350px;
- object-fit:contain;
- border-radius:10px;
- background:#101d2b;
+
+.cards {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+ gap: 22px;
 }
-a{color:#e8c27a}
-footer{
- text-align:center;
- padding:20px;
- color:#bbb;
- border-top:1px solid #41566a;
- margin-top:30px;
+
+.card {
+ background: #1c3042;
+ border: 1px solid #41566a;
+ border-radius: 14px;
+ padding: 15px;
+ text-align: center;
+ transition: 0.3s;
+}
+
+.card:hover {
+ transform: translateY(-5px);
+}
+
+.art {
+ width: 100%;
+ height: 190px;
+ object-fit: cover;
+ border-radius: 10px;
+ display: block;
+}
+
+.card h3 {
+ color: #e8c27a;
+ font-size: 21px;
+}
+
+.card p {
+ color: #ddd;
+ min-height: 65px;
+}
+
+button {
+ background: #c69b52;
+ color: #172330;
+ border: none;
+ border-radius: 8px;
+ padding: 11px 22px;
+ font-size: 16px;
+ font-weight: bold;
+ cursor: pointer;
+}
+
+button:hover {
+ background: #e8c27a;
+}
+
+#details {
+ display: none;
+ background: #1c3042;
+ border: 1px solid #c69b52;
+ border-radius: 14px;
+ padding: 20px;
+ margin-top: 35px;
+}
+
+#details h2 {
+ color: #e8c27a;
+}
+
+.detail-img {
+ width: 100%;
+ max-height: 380px;
+ object-fit: contain;
+ display: block;
+ border-radius: 10px;
+ background: #101d2b;
+ margin: 15px auto;
+}
+
+.info {
+ background: #263d51;
+ padding: 15px;
+ border-radius: 10px;
+ margin: 15px 0;
+}
+
+.info b {
+ color: #e8c27a;
+}
+
+.close-btn {
+ display: block;
+ margin: 20px auto 0;
+}
+
+footer {
+ text-align: center;
+ padding: 25px 15px;
+ color: #bbb;
+ border-top: 1px solid #41566a;
+ margin-top: 40px;
+}
+
+footer span {
+ color: #e8c27a;
 }
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>🏛️ متحف التراث الرقمي</h1>
-<p>رحلة لاكتشاف حضارات العالم وآثارها العظيمة</p>
+ <h1>🏛️ متحف التراث الرقمي</h1>
+ <p>رحلة عبر الزمن لاكتشاف حضارات العالم وآثارها العظيمة</p>
 </header>
 
 <main class="container">
-<h2>اكتشف مجموعتنا الأثرية</h2>
+
+<h2 class="section-title">اكتشف مجموعتنا الأثرية</h2>
 
 <div class="cards">
 
-<div class="card">
-<img class="art"
-src="https://upload.wikimedia.org/wikipedia/commons/8/80/Ziggurat_of_ur.jpg"
-alt="إعادة بناء زقورة أور">
-<h3>زقورة أور</h3>
-<p>أحد أشهر المعالم المعمارية لحضارة بلاد الرافدين.</p>
-<button onclick="showDetails('ur')">اكتشف القطعة</button>
-</div>
+ <div class="card">
+  <img class="art" src="ur.jpg" alt="زقورة أور">
+  <h3>زقورة أور</h3>
+  <p>صرح معماري عظيم من حضارة بلاد الرافدين القديمة.</p>
+  <button onclick="showDetails('ur')">اكتشف القطعة</button>
+ </div>
 
-<div class="card">
-<img class="art"
-src="https://upload.wikimedia.org/wikipedia/commons/1/19/Ishtar_Gate_in_the_Pergamon_Museum_-.jpg"
-alt="بوابة عشتار">
-<h3>بوابة عشتار</h3>
-<p>بوابة تاريخية عظيمة من مدينة بابل القديمة.</p>
-<button onclick="showDetails('ishtar')">اكتشف القطعة</button>
-</div>
+ <div class="card">
+  <img class="art" src="ishtar.jpg" alt="بوابة عشتار">
+  <h3>بوابة عشتار</h3>
+  <p>واحدة من أشهر بوابات مدينة بابل التاريخية.</p>
+  <button onclick="showDetails('ishtar')">اكتشف القطعة</button>
+ </div>
 
-<div class="card">
-<img class="art"
-src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Behistun_inscription_reliefs.jpg"
-alt="نقش بيستون">
-<h3>نقش بيستون</h3>
-<p>نقش تاريخي ساعد في فهم الكتابة المسمارية.</p>
-<button onclick="showDetails('behistun')">اكتشف القطعة</button>
-</div>
+ <div class="card">
+  <img class="art" src="behistun.jpg" alt="نقش بيستون">
+  <h3>نقش بيستون</h3>
+  <p>نقش أثري مهم ساعد في فهم الكتابة المسمارية.</p>
+  <button onclick="showDetails('behistun')">اكتشف القطعة</button>
+ </div>
 
 </div>
 
 <section id="details">
-<div id="detailContent"></div>
-<button onclick="closeDetails()">إغلاق التفاصيل</button>
+ <div id="detailContent"></div>
+ <button class="close-btn" onclick="closeDetails()">إغلاق التفاصيل</button>
 </section>
+
 </main>
 
 <footer>
-<p>متحف التراث الرقمي © 2026</p>
-<p>مشروع تعليمي للتعريف بالتراث الإنساني</p>
+ <p><span>متحف التراث الرقمي</span> © 2026</p>
+ <p>مشروع تعليمي للتعريف بالتراث الإنساني والحضارات القديمة</p>
 </footer>
 
 <script>
-const artifacts={
-ur:{
-name:"زقورة أور",
-image:"https://upload.wikimedia.org/wikipedia/commons/8/80/Ziggurat_of_ur.jpg",
-date:"حوالي القرن الحادي والعشرين قبل الميلاد",
-civilization:"الحضارة السومرية",
-location:"مدينة أور، جنوب العراق",
-info:"زقورة أور معبد مدرّج ضخم بُني في مدينة أور القديمة. ارتبط بناؤها بالملك أور نمو، وكانت مخصصة لعبادة الإله نانا، إله القمر. وتُعد من أبرز نماذج العمارة الدينية في بلاد الرافدين.",
-note:"الصورة المعروضة إعادة بناء كمبيوترية لشكل الزقورة."
-},
-ishtar:{
-name:"بوابة عشتار",
-image:"https://upload.wikimedia.org/wikipedia/commons/1/19/Ishtar_Gate_in_the_Pergamon_Museum_-.jpg",
-date:"حوالي القرن السادس قبل الميلاد",
-civilization:"الحضارة البابلية الحديثة",
-location:"مدينة بابل، العراق",
-info:"بُنيت بوابة عشتار في عهد الملك نبوخذ نصر الثاني، وكانت من المداخل الرئيسية لمدينة بابل. اشتهرت بالطوب المزجج الأزرق والزخارف التي تمثل الحيوانات المقدسة، ومنها التنين والثور.",
-note:"الصورة للبوابة المعروضة في متحف بيرغامون."
-},
-behistun:{
-name:"نقش بيستون",
-image:"https://upload.wikimedia.org/wikipedia/commons/f/f1/Behistun_inscription_reliefs.jpg",
-date:"القرن السادس قبل الميلاد",
-civilization:"الإمبراطورية الأخمينية الفارسية",
-location:"جبل بيستون، غرب إيران",
-info:"نقش بيستون نقش ملكي أمر به الملك داريوس الأول. كُتب بثلاث لغات قديمة: الفارسية القديمة، والعيلامية، والبابلية. وكان له دور مهم في فك رموز الكتابة المسمارية.",
-note:"يُعد من أهم الشواهد الأثرية لدراسة تاريخ الإمبراطورية الأخمينية."
-}
+
+const artifacts = {
+
+ ur: {
+  name: "زقورة أور",
+  image: "ur.jpg",
+  date: "حوالي القرن الحادي والعشرين قبل الميلاد",
+  civilization: "الحضارة السومرية",
+  location: "مدينة أور، جنوب العراق",
+  info: "تُعد زقورة أور من أشهر المعالم المعمارية في بلاد الرافدين. بناها الملك أور نمو، وكانت مخصصة لعبادة الإله نانا، إله القمر. تميزت بتصميمها المدرج الضخم الذي يعكس تطور العمارة السومرية."
+ },
+
+ ishtar: {
+  name: "بوابة عشتار",
+  image: "ishtar.jpg",
+  date: "القرن السادس قبل الميلاد",
+  civilization: "الحضارة البابلية الحديثة",
+  location: "مدينة بابل، العراق",
+  info: "أمر الملك نبوخذ نصر الثاني ببناء بوابة عشتار، وكانت من أهم مداخل مدينة بابل. اشتهرت بالطوب المزجج الأزرق والزخارف الحيوانية، ومنها التنين والثور، وهي من أبرز روائع الفن البابلي."
+ },
+
+ behistun: {
+  name: "نقش بيستون",
+  image: "behistun.jpg",
+  date: "القرن السادس قبل الميلاد",
+  civilization: "الإمبراطورية الأخمينية الفارسية",
+  location: "جبل بيستون، غرب إيران",
+  info: "أمر الملك داريوس الأول بنقش هذا النص على جبل بيستون. كُتب بثلاث لغات قديمة هي الفارسية القديمة والعيلامية والبابلية. ساعد هذا النقش العلماء في فك رموز الكتابة المسمارية وفهم تاريخ المنطقة."
+ }
+
 };
 
-function showDetails(id){
-const a=artifacts[id];
-document.getElementById("detailContent").innerHTML=`
-<h2>${a.name}</h2>
-<img class="detail-img" src="${a.image}" alt="${a.name}">
-<p><b>التاريخ:</b> ${a.date}</p>
-<p><b>الحضارة:</b> ${a.civilization}</p>
-<p><b>الموقع:</b> ${a.location}</p>
-<p><b>نبذة تاريخية:</b> ${a.info}</p>
-<p><b>ملاحظة:</b> ${a.note}</p>
-<p><b>مصدر الصورة:</b>
-<a href="${a.image}" target="_blank">ويكيميديا كومنز</a></p>
-`;
-document.getElementById("details").style.display="block";
-document.getElementById("details").scrollIntoView({behavior:"smooth"});
+function showDetails(id) {
+
+ const a = artifacts[id];
+
+ document.getElementById("detailContent").innerHTML = `
+  <h2>${a.name}</h2>
+
+  <img class="detail-img"
+  src="${a.image}"
+  alt="${a.name}">
+
+  <div class="info">
+   <p><b>التاريخ:</b> ${a.date}</p>
+   <p><b>الحضارة:</b> ${a.civilization}</p>
+   <p><b>الموقع:</b> ${a.location}</p>
+   <p><b>نبذة تاريخية:</b> ${a.info}</p>
+  </div>
+ `;
+
+ document.getElementById("details").style.display = "block";
+
+ document.getElementById("details").scrollIntoView({
+  behavior: "smooth"
+ });
 }
 
-function closeDetails(){
-document.getElementById("details").style.display="none";
+function closeDetails() {
+ document.getElementById("details").style.display = "none";
 }
+
 </script>
 
 </body>
- </html>
- 
+</html>
